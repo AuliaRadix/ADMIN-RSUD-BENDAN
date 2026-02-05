@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dashboard Admin </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-sidebar-enabled="true"
+    data-kt-app-sidebar-fixed="true" data-kt-app-header-fixed="true">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <div id="sidebar-placeholder"></div>
+
+        <!-- MAIN -->
+        <div class="main">
+
+            <!-- HEADER -->
+            <div id="header-placeholder"></div>
+
+            <!-- CONTENT SUB MENU -->
+            <main class="content">
+                <div class="container-fluid">
+                    <!-- Page Header -->
+                    <div class="page-section mb-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h4 class="mb-1">Daftar Sub Menu</h4>
+                                <p class="text-muted small mb-0">Kelola sub menu di bawah menu utama</p>
+                            </div>
+                            <button class="btn btn-primary btn-lg" data-bs-toggle="modal"
+                                data-bs-target="#addMenuModal">Tambah Sub Menu
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Data Table Card -->
+                    <div class="card modern-card">
+                        <div
+                            class="card-header border-bottom bg-white py-3 px-4 d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-sliders text-primary me-2 fs-5"></i>
+                                <h5 class="mb-0 text-dark">Sub Menu List</h5>
+                            </div>
+                            <select class="form-select form-select-sm" id="sortMenuSelect" style="width: 200px;">
+                                <option value="default" selected>Urutkan Menu...</option>
+                                <option value="asc">Menu (A - Z)</option>
+                                <option value="desc">Menu (Z - A)</option>
+                            </select>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="text-center" style="width: 60px;">No</th>
+                                            <th scope="col"> Menu</th>
+                                            <th scope="col">Sub Menu</th>
+                                            <th scope="col">Data Link</th>
+                                            <th scope="col" class="text-center">Urutan</th>
+                                            <th scope="col" class="text-center" style="width: 150px;">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">1</td>
+                                            <td><span class="fw-bold">Dashboard</span></td>
+                                            <td><span class="fw-bold">Default</span></td>
+                                            <td><span class="text-code">index.html</span></td>
+                                            <td class="text-center"><span class="badge-soft-primary">1</span></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-warning me-1" title="Edit"
+                                                    data-bs-toggle="modal" data-bs-target="#editMenuModal"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Hapus"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteMenuModal"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">2</td>
+                                            <td><span class="fw-bold">Components</span></td>
+                                            <td><span class="fw-bold">Base</span></td>
+                                            <td><span class="text-code">#</span></td>
+                                            <td class="text-center"><span class="badge-soft-primary">2</span></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-warning me-1" title="Edit"
+                                                    data-bs-toggle="modal" data-bs-target="#editMenuModal"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Hapus"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteMenuModal"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">3</td>
+                                            <td><span class="fw-bold">Menu</span></td>
+                                            <td><span class="fw-bold">List</span></td>
+                                            <td><span class="text-code">menu.html</span></td>
+                                            <td class="text-center"><span class="badge-soft-primary">3</span></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-warning me-1" title="Edit"
+                                                    data-bs-toggle="modal" data-bs-target="#editMenuModal"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Hapus"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteMenuModal"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">4</td>
+                                            <td><span class="fw-bold">Sub Menu</span></td>
+                                            <td><span class="fw-bold">List</span></td>
+                                            <td><span class="text-code">submenu.html</span></td>
+                                            <td class="text-center"><span class="badge-soft-primary">4</span></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-warning me-1" title="Edit"
+                                                    data-bs-toggle="modal" data-bs-target="#editMenuModal"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Hapus"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteMenuModal"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">5</td>
+                                            <td><span class="fw-bold">Child Menu</span></td>
+                                            <td><span class="fw-bold">List</span></td>
+                                            <td><span class="text-code">childmenu.html</span></td>
+                                            <td class="text-center"><span class="badge-soft-primary">5</span></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-warning me-1" title="Edit"
+                                                    data-bs-toggle="modal" data-bs-target="#editMenuModal"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Hapus"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteMenuModal"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">6</td>
+                                            <td><span class="fw-bold">Contents</span></td>
+                                            <td><span class="fw-bold">Pages</span></td>
+                                            <td><span class="text-code">#</span></td>
+                                            <td class="text-center"><span class="badge-soft-primary">6</span></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-warning me-1" title="Edit"
+                                                    data-bs-toggle="modal" data-bs-target="#editMenuModal"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Hapus"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteMenuModal"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">7</td>
+                                            <td><span class="fw-bold">Halaman</span></td>
+                                            <td><span class="fw-bold">List</span></td>
+                                            <td><span class="text-code">halaman.html</span></td>
+                                            <td class="text-center"><span class="badge-soft-primary">7</span></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-warning me-1" title="Edit"
+                                                    data-bs-toggle="modal" data-bs-target="#editMenuModal"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Hapus"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteMenuModal"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">8</td>
+                                            <td><span class="fw-bold">Berita</span></td>
+                                            <td><span class="fw-bold">List</span></td>
+                                            <td><span class="text-code">berita.html</span></td>
+                                            <td class="text-center"><span class="badge-soft-primary">8</span></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-warning me-1" title="Edit"
+                                                    data-bs-toggle="modal" data-bs-target="#editMenuModal"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Hapus"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteMenuModal"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">9</td>
+                                            <td><span class="fw-bold">Infografis</span></td>
+                                            <td><span class="fw-bold">List</span></td>
+                                            <td><span class="text-code">infografis.html</span></td>
+                                            <td class="text-center"><span class="badge-soft-primary">9</span></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-warning me-1" title="Edit"
+                                                    data-bs-toggle="modal" data-bs-target="#editMenuModal"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Hapus"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteMenuModal"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">10</td>
+                                            <td><span class="fw-bold">Link Terkait</span></td>
+                                            <td><span class="fw-bold">List</span></td>
+                                            <td><span class="text-code">link.html</span></td>
+                                            <td class="text-center"><span class="badge-soft-primary">10</span></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-warning me-1" title="Edit"
+                                                    data-bs-toggle="modal" data-bs-target="#editMenuModal"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Hapus"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteMenuModal"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Pagination -->
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="text-muted small">Menampilkan 1 sampai 10 dari 10 data</span>
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination pagination-sm mb-0">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1"
+                                                aria-disabled="true">Previous</a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Tambah Menu -->
+                <div class="modal fade" id="addMenuModal" tabindex="-1" aria-labelledby="addMenuModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addMenuModalLabel">Tambah Menu</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="addNamaMenu" class="form-label">Nama Menu</label>
+                                        <input type="text" class="form-control" id="addNamaMenu"
+                                            placeholder="Masukkan nama menu">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="addSubMenu" class="form-label">Sub Menu</label>
+                                        <input type="text" class="form-control" id="addSubMenu"
+                                            placeholder="Masukkan sub menu">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="addJenisMenu" class="form-label">Jenis Menu</label>
+                                        <select class="form-select" id="addJenisMenu">
+                                            <option selected>Pilih jenis menu</option>
+                                            <option value="main">Main Menu</option>
+                                            <option value="sub">Sub Menu</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="addDataLink" class="form-label">Data Link</label>
+                                        <input type="text" class="form-control" id="addDataLink"
+                                            placeholder="Masukkan link">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="addUrutan" class="form-label">Urutan</label>
+                                        <input type="number" class="form-control" id="addUrutan"
+                                            placeholder="Masukkan urutan">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Edit Menu -->
+                <div class="modal fade" id="editMenuModal" tabindex="-1" aria-labelledby="editMenuModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editMenuModalLabel">Edit Menu</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="namaMenu" class="form-label">Nama Menu</label>
+                                        <input type="text" class="form-control" id="namaMenu"
+                                            placeholder="Masukkan nama menu">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editSubMenu" class="form-label">Sub Menu</label>
+                                        <input type="text" class="form-control" id="editSubMenu"
+                                            placeholder="Masukkan sub menu">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="jenisMenu" class="form-label">Jenis Menu</label>
+                                        <select class="form-select" id="jenisMenu">
+                                            <option selected>Pilih jenis menu</option>
+                                            <option value="main">Main Menu</option>
+                                            <option value="sub">Sub Menu</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="dataLink" class="form-label">Data Link</label>
+                                        <input type="text" class="form-control" id="dataLink"
+                                            placeholder="Masukkan link">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="urutan" class="form-label">Urutan</label>
+                                        <input type="number" class="form-control" id="urutan"
+                                            placeholder="Masukkan urutan">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Hapus Menu -->
+                <div class="modal fade" id="deleteMenuModal" tabindex="-1" aria-labelledby="deleteMenuModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteMenuModalLabel">Konfirmasi Hapus</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Apakah Anda yakin ingin menghapus data ini? Data yang dihapus tidak dapat
+                                    dikembalikan.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-danger">Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+
+    <script src="assets/plugins/global/plugins.bundle.js"></script>
+    <script src="assets/js/scripts.bundle.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
