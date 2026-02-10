@@ -34,9 +34,152 @@
             <!-- HEADER -->
             <div id="header-placeholder"></div>
 
-            <!-- CONTENT -->
+            <!-- CONTENT LINK -->
             <main class="content">
-                <h4>Daftar Link Terkait</h4>
+                <div class="container-fluid">
+                    <div class="page-section mb-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h4 class="mb-1">Daftar Link Terkait</h4>
+                                <p class="text-muted small mb-0">Kelola link eksternal atau internal terkait</p>
+                            </div>
+                            <button class="btn btn-primary btn-lg" data-bs-toggle="modal"
+                                data-bs-target="#addLinkModal">Tambah Link</button>
+                        </div>
+                    </div>
+
+                    <div class="card modern-card">
+                        <div class="card-header border-bottom bg-white py-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-link-45deg text-primary me-2 fs-5"></i>
+                                <h5 class="mb-0 text-dark">Link List</h5>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="text-center" style="width: 60px;">No</th>
+                                            <th scope="col">Nama Link</th>
+                                            <th scope="col">URL</th>
+                                            <th scope="col" class="text-center" style="width: 150px;">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">1</td>
+                                            <td><span class="fw-bold">Kementerian Kesehatan</span></td>
+                                            <td><a href="https://kemkes.go.id" target="_blank"
+                                                    class="text-decoration-none">https://kemkes.go.id</a></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-warning me-1" title="Edit"
+                                                    data-bs-toggle="modal" data-bs-target="#editLinkModal"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Hapus"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteLinkModal"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">2</td>
+                                            <td><span class="fw-bold">BPJS Kesehatan</span></td>
+                                            <td><a href="https://bpjs-kesehatan.go.id" target="_blank"
+                                                    class="text-decoration-none">https://bpjs-kesehatan.go.id</a></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-warning me-1" title="Edit"
+                                                    data-bs-toggle="modal" data-bs-target="#editLinkModal"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Hapus"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteLinkModal"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Tambah Link -->
+                <div class="modal fade" id="addLinkModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Tambah Link Baru</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Nama Link</label>
+                                        <input type="text" class="form-control"
+                                            placeholder="Contoh: Kementerian Kesehatan">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">URL</label>
+                                        <input type="url" class="form-control" placeholder="https://...">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Edit Link -->
+                <div class="modal fade" id="editLinkModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit Link</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Nama Link</label>
+                                        <input type="text" class="form-control" value="Kementerian Kesehatan">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">URL</label>
+                                        <input type="url" class="form-control" value="https://kemkes.go.id">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Hapus Link -->
+                <div class="modal fade" id="deleteLinkModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Konfirmasi Hapus</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Apakah Anda yakin ingin menghapus link ini?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-danger">Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
 
         </div>

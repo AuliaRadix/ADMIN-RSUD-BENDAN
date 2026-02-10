@@ -34,9 +34,188 @@
             <!-- HEADER -->
             <div id="header-placeholder"></div>
 
-            <!-- CONTENT -->
+            <!-- CONTENT BERITA -->
             <main class="content">
-                <h4>Daftar Berita</h4>
+                <div class="container-fluid">
+                    <div class="page-section mb-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h4 class="mb-1">Daftar Berita</h4>
+                                <p class="text-muted small mb-0">Kelola berita dan artikel terbaru</p>
+                            </div>
+                            <button class="btn btn-primary btn-lg" data-bs-toggle="modal"
+                                data-bs-target="#addBeritaModal">Tambah Berita</button>
+                        </div>
+                    </div>
+
+                    <div class="card modern-card">
+                        <div class="card-header border-bottom bg-white py-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-newspaper text-primary me-2 fs-5"></i>
+                                <h5 class="mb-0 text-dark">News List</h5>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="text-center" style="width: 60px;">No</th>
+                                            <th scope="col" style="width: 100px;">Gambar</th>
+                                            <th scope="col">Judul Berita</th>
+                                            <th scope="col">Kategori</th>
+                                            <th scope="col">Tanggal</th>
+                                            <th scope="col" class="text-center">Status</th>
+                                            <th scope="col" class="text-center" style="width: 150px;">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">1</td>
+                                            <td>
+                                                <img src="assets/media/avatars/300-1.jpg" alt="Thumbnail"
+                                                    class="rounded"
+                                                    style="width: 60px; height: 40px; object-fit: cover;">
+                                            </td>
+                                            <td>
+                                                <span class="fw-bold d-block">Pentingnya Vaksinasi Booster</span>
+                                                <span class="text-muted small text-truncate d-block"
+                                                    style="max-width: 300px;">Vaksinasi booster sangat penting untuk
+                                                    menjaga kekebalan tubuh...</span>
+                                            </td>
+                                            <td><span class="fw-bold">Kesehatan</span></td>
+                                            <td>12 Okt 2023</td>
+                                            <td class="text-center"><span class="fw-bold">Published</span></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-warning me-1" title="Edit"
+                                                    data-bs-toggle="modal" data-bs-target="#editBeritaModal"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Hapus"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteBeritaModal"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Tambah Berita -->
+                <div class="modal fade" id="addBeritaModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Tambah Berita Baru</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Judul Berita</label>
+                                        <input type="text" class="form-control" placeholder="Masukkan judul berita">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Kategori</label>
+                                        <select class="form-select">
+                                            <option selected>Pilih Kategori...</option>
+                                            <option value="1">Kesehatan</option>
+                                            <option value="2">Umum</option>
+                                            <option value="3">Pengumuman</option>
+                                            <option value="4">Tips & Trik</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Gambar Utama</label>
+                                        <input type="file" class="form-control" accept="image/*">
+                                        <div class="form-text">Format: jpg, png, jpeg. Maksimal 2MB.</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Isi Berita</label>
+                                        <textarea class="form-control" rows="10"
+                                            placeholder="Tulis isi berita di sini..."></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Edit Berita -->
+                <div class="modal fade" id="editBeritaModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit Berita</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Judul Berita</label>
+                                        <input type="text" class="form-control" value="Pentingnya Vaksinasi Booster">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Kategori</label>
+                                        <select class="form-select">
+                                            <option>Pilih Kategori...</option>
+                                            <option value="1" selected>Kesehatan</option>
+                                            <option value="2">Umum</option>
+                                            <option value="3">Pengumuman</option>
+                                            <option value="4">Tips & Trik</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Gambar Utama</label>
+                                        <input type="file" class="form-control" accept="image/*">
+                                        <div class="mt-2">
+                                            <img src="assets/media/avatars/300-1.jpg" alt="Current Image"
+                                                class="img-thumbnail" style="height: 100px;">
+                                            <span class="text-muted small ms-2">Gambar saat ini</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Isi Berita</label>
+                                        <textarea class="form-control"
+                                            rows="10">Vaksinasi booster sangat penting untuk menjaga kekebalan tubuh...</textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Hapus Berita -->
+                <div class="modal fade" id="deleteBeritaModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Konfirmasi Hapus</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Apakah Anda yakin ingin menghapus berita ini? Tindakan ini tidak dapat dibatalkan.
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-danger">Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
 
         </div>

@@ -12,7 +12,7 @@ import (
 
 // ================= TEMPLATE =================
 var tmpl = template.Must(
-	template.ParseFiles("../templates/login.gohtml"),
+	template.ParseFiles("../templates/login.html"),
 )
 
 // ================= SESSION =================

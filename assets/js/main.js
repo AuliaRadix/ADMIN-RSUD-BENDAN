@@ -181,11 +181,44 @@ function reloadCaptcha() {
 }
 
 function reloadCaptcha() {
-            fetch('/reload-captcha')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('captchaImg').src = "/captcha/" + data.id + ".png";
-                    document.getElementById('captchaId').value = data.id;
-                })
-                .catch(error => console.error('Error reloading captcha:', error));
+    fetch('/reload-captcha')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('captchaImg').src = "/captcha/" + data.id + ".png";
+            document.getElementById('captchaId').value = data.id;
+        })
+        .catch(error => console.error('Error reloading captcha:', error));
+}
+
+// tarif.js
+function addMenuRow(containerId = 'menuContainer') {
+    const container = document.getElementById(containerId);
+    const div = document.createElement('div');
+    div.className = 'row g-2 mb-2 align-items-center menu-item';
+    div.innerHTML = `
+                <div class="col-7">
+                    <input type="text" class="form-control" name="menu_nama[]" placeholder="Nama Menu / Tindakan">
+                </div>
+                <div class="col-4">
+                    <div class="input-group">
+                        <span class="input-group-text">Rp</span>
+                        <input type="number" class="form-control" name="menu_harga[]" placeholder="0">
+                    </div>
+                </div>
+                <div class="col-1">
+                    <button type="button" class="btn btn-danger btn-sm" onclick="this.closest('.menu-item').remove()"><i class="bi bi-trash"></i></button>
+                </div>
+            `;
+    container.appendChild(div);
+}
+
+// Initialize with one row when modal opens
+const addTarifModal = document.getElementById('addTarifModal');
+if (addTarifModal) {
+    addTarifModal.addEventListener('show.bs.modal', function () {
+        const container = document.getElementById('menuContainer');
+        if (container && container.children.length === 0) {
+            addMenuRow('menuContainer');
         }
+    });
+}

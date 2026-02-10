@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dashboard Admin </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-sidebar-enabled="true"
+    data-kt-app-sidebar-fixed="true" data-kt-app-header-fixed="true">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <div id="sidebar-placeholder"></div>
+
+        <!-- MAIN -->
+        <div class="main">
+
+            <!-- HEADER -->
+            <div id="header-placeholder"></div>
+
+            <!-- CONTENT JADWAL DOKTER -->
+            <main class="content">
+                <div class="container-fluid">
+                    <div class="page-section mb-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h4 class="mb-1">Jadwal Dokter</h4>
+                                <p class="text-muted small mb-0">Kelola jadwal praktek dokter</p>
+                            </div>
+                            <button class="btn btn-primary btn-lg" data-bs-toggle="modal"
+                                data-bs-target="#addJadwalModal">Tambah Jadwal</button>
+                        </div>
+                    </div>
+
+                    <div class="card modern-card">
+                        <div class="card-header border-bottom bg-white py-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-calendar-week text-primary me-2 fs-5"></i>
+                                <h5 class="mb-0 text-dark">Daftar Jadwal</h5>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="text-center" style="width: 60px;">No</th>
+                                            <th scope="col">Nama Dokter</th>
+                                            <th scope="col">Spesialis</th>
+                                            <th scope="col">Hari</th>
+                                            <th scope="col">Jam Pagi</th>
+                                            <th scope="col">Jam Siang</th>
+                                            <th scope="col" class="text-center" style="width: 150px;">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">1</td>
+                                            <td><span class="fw-bold">dr. Budi Santoso, Sp.PD</span></td>
+                                            <td>Penyakit Dalam</td>
+                                            <td>Senin, Rabu, Jumat</td>
+                                            <td>08:00 - 12:00</td>
+                                            <td>13:00 - 16:00</td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-warning me-1" title="Edit"
+                                                    data-bs-toggle="modal" data-bs-target="#editJadwalModal"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Hapus"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteJadwalModal"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Tambah Jadwal -->
+                <div class="modal fade" id="addJadwalModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Tambah Jadwal Dokter</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Nama Dokter</label>
+                                        <input type="text" class="form-control" placeholder="Masukkan nama dokter">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Spesialis / Poli</label>
+                                        <select class="form-select">
+                                            <option selected>Pilih Spesialis...</option>
+                                            <option value="1">Penyakit Dalam</option>
+                                            <option value="2">Anak</option>
+                                            <option value="3">Bedah</option>
+                                            <option value="4">Gigi</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Hari Praktek</label>
+                                        <input type="text" class="form-control"
+                                            placeholder="Contoh: Senin, Rabu, Jumat">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Jam Pagi</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">Mulai</span>
+                                            <input type="time" class="form-control">
+                                            <span class="input-group-text">Selesai</span>
+                                            <input type="time" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Jam Siang</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">Mulai</span>
+                                            <input type="time" class="form-control">
+                                            <span class="input-group-text">Selesai</span>
+                                            <input type="time" class="form-control">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Edit Jadwal -->
+                <div class="modal fade" id="editJadwalModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit Jadwal Dokter</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Nama Dokter</label>
+                                        <input type="text" class="form-control" value="dr. Budi Santoso, Sp.PD">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Spesialis / Poli</label>
+                                        <select class="form-select">
+                                            <option>Pilih Spesialis...</option>
+                                            <option value="1" selected>Penyakit Dalam</option>
+                                            <option value="2">Anak</option>
+                                            <option value="3">Bedah</option>
+                                            <option value="4">Gigi</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Hari Praktek</label>
+                                        <input type="text" class="form-control" value="Senin, Rabu, Jumat">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Jam Pagi</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">Mulai</span>
+                                            <input type="time" class="form-control" value="08:00">
+                                            <span class="input-group-text">Selesai</span>
+                                            <input type="time" class="form-control" value="12:00">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Jam Siang</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">Mulai</span>
+                                            <input type="time" class="form-control" value="13:00">
+                                            <span class="input-group-text">Selesai</span>
+                                            <input type="time" class="form-control" value="16:00">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Hapus Jadwal -->
+                <div class="modal fade" id="deleteJadwalModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Konfirmasi Hapus</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Apakah Anda yakin ingin menghapus jadwal ini?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-danger">Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+
+    <script src="assets/plugins/global/plugins.bundle.js"></script>
+    <script src="assets/js/scripts.bundle.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>

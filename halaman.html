@@ -34,9 +34,147 @@
             <!-- HEADER -->
             <div id="header-placeholder"></div>
 
-            <!-- CONTENT -->
+            <!-- CONTENT HALAMAN -->
             <main class="content">
-                <h4>Daftar Halaman</h4>
+                <div class="container-fluid">
+                    <div class="page-section mb-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h4 class="mb-1">Daftar Halaman</h4>
+                                <p class="text-muted small mb-0">Kelola halaman statis website</p>
+                            </div>
+                            <button class="btn btn-primary btn-lg" data-bs-toggle="modal"
+                                data-bs-target="#addHalamanModal">Tambah Halaman</button>
+                        </div>
+                    </div>
+
+                    <div class="card modern-card">
+                        <div class="card-header border-bottom bg-white py-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-file-earmark-text text-primary me-2 fs-5"></i>
+                                <h5 class="mb-0 text-dark">Pages List</h5>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="text-center" style="width: 60px;">No</th>
+                                            <th scope="col">Judul Halaman</th>
+                                            <th scope="col">Link</th>
+                                            <th scope="col" class="text-center" >Status</th>
+                                            <th scope="col" class="text-center" style="width: 150px;">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">1</td>
+                                            <td><span class="fw-bold">Profil Rumah Sakit</span></td>
+                                            <td><span class="text-code">/profil</span></td>
+                                            <td class="text-center"><span class="fw-bold">Published</span></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-warning me-1" title="Edit"
+                                                    data-bs-toggle="modal" data-bs-target="#editHalamanModal"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Hapus"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteHalamanModal"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Tambah Halaman -->
+                <div class="modal fade" id="addHalamanModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Tambah Halaman Baru</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Judul Halaman</label>
+                                        <input type="text" class="form-control" placeholder="Masukkan judul halaman">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Link</label>
+                                        <input type="text" class="form-control" placeholder="contoh-slug-halaman">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Konten</label>
+                                        <textarea class="form-control" rows="10"
+                                            placeholder="Isi konten halaman..."></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Edit Halaman -->
+                <div class="modal fade" id="editHalamanModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit Halaman</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Judul Halaman</label>
+                                        <input type="text" class="form-control" value="Profil Rumah Sakit">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Link</label>
+                                        <input type="text" class="form-control" value="/profil">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Konten</label>
+                                        <textarea class="form-control" rows="10">Konten profil...</textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Hapus Halaman -->
+                <div class="modal fade" id="deleteHalamanModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Konfirmasi Hapus</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Apakah Anda yakin ingin menghapus halaman ini?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-danger">Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
 
         </div>

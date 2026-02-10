@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Dashboard Admin </title>
+    <title>Dashboard Admin - Infografis</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
@@ -36,7 +36,145 @@
 
             <!-- CONTENT -->
             <main class="content">
-                <h4>Daftar Infografis</h4>
+                <div class="container-fluid">
+                    <div class="page-section mb-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h4 class="mb-1">Daftar Infografis</h4>
+                                <p class="text-muted small mb-0">Kelola infografis dan poster edukasi</p>
+                            </div>
+                            <button class="btn btn-primary btn-lg" data-bs-toggle="modal"
+                                data-bs-target="#addInfografisModal">Tambah Infografis</button>
+                        </div>
+                    </div>
+
+                    <div class="card modern-card">
+                        <div class="card-header border-bottom bg-white py-3 px-4">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-images text-primary me-2 fs-5"></i>
+                                <h5 class="mb-0 text-dark">Infographics Gallery</h5>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="text-center" style="width: 60px;">No</th>
+                                            <th scope="col" class="text-center" style="width: 120px;">Preview</th>
+                                            <th scope="col">Judul Infografis</th>
+                                            <th scope="col" style="width: 150px;">Tanggal</th>
+                                            <th scope="col" class="text-center" style="width: 120px;">Status</th>
+                                            <th scope="col" class="text-center" style="width: 150px;">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">1</td>
+                                            <td class="text-center">
+                                                <img src="https://placehold.co/300x400" alt="Img"
+                                                    class="rounded shadow-sm"
+                                                    style="width: 60px; height: 80px; object-fit: cover;">
+                                            </td>
+                                            <td><span class="fw-bold">Cara Mencuci Tangan yang Benar</span></td>
+                                            <td>12 Feb 2026</td>
+                                            <td class="text-center"><span class="fw-bold">Published</span></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-warning me-1" title="Edit"
+                                                    data-bs-toggle="modal" data-bs-target="#editInfografisModal"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                                <button class="btn btn-sm btn-danger" title="Hapus"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteInfografisModal"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modals -->
+                <!-- Add Modal -->
+                <div class="modal fade" id="addInfografisModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Tambah Infografis Baru</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Judul</label>
+                                        <input type="text" class="form-control" placeholder="Masukkan judul infografis">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">File Gambar</label>
+                                        <input type="file" class="form-control" accept="image/*">
+                                        <div class="form-text">Format: JPG, PNG. Ukuran maks: 2MB.</div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit Modal -->
+                <div class="modal fade" id="editInfografisModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit Infografis</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Judul</label>
+                                        <input type="text" class="form-control" value="Cara Mencuci Tangan yang Benar">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">File Gambar</label>
+                                        <input type="file" class="form-control" accept="image/*">
+                                        <div class="form-text">Biarkan kosong jika tidak ingin mengganti gambar.</div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delete Modal -->
+                <div class="modal fade" id="deleteInfografisModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Konfirmasi Hapus</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Apakah Anda yakin ingin menghapus infografis ini?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn btn-danger">Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
 
         </div>
